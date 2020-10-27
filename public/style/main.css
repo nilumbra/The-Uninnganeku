@@ -19,7 +19,7 @@
 
 /* General Style */
 body {
-
+/*	background: #0a120c;*/
 }
 
 /* Simple Button styles*/
@@ -107,7 +107,11 @@ button:hover {
 
 /* Style for Centered Text */
 [data-ui="centered"] {
-
+	color:#eee;
+	font-family: "Lucida Console", Courier, monospace;
+/*	font-family: "Ravi Prakash"; 
+	font-style: normal;
+	font-weight: 200;*/
 }
 
 /* Character Images Styles */

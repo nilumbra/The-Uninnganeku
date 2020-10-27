@@ -248,6 +248,7 @@ select {
 }
 
 [data-ui="message-content"] {
+	color:white;
 	text-align: left;
 	max-width: 100%;
 }
@@ -305,6 +306,7 @@ textarea {
 [data-ui="face"] {
 	display: inline-block;
 	float: left;
+	width: 80px;
 	max-height: 20% !important;
 	position: initial !important;
 }

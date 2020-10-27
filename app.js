@@ -38,10 +38,10 @@ const express = require('express'),
 // 	})
 
 app.get('/', (req, res) => {
+	console.log(`Incoming connection from ${req.ip}, hostname [${req.hostname}]`);
 	var url = path.join(__dirname, "public/index.html");
 	if(fs.existsSync(url)){
 		fs.readFile(url, (err, data) => {
-			console.log("Loading game page.");
 			if(!err){
 				res.writeHead(200, {"Content-Type": ""});
 				res.end(data);
@@ -62,5 +62,5 @@ app.use("/", express.static(__dirname + '/public'));
 
 const port = process.env.PORT||3000
 app.listen(port, ()=>{
-	console.log(`Server running at port ${port}`)
+	console.log(`Server running at port ${port}[${new Date()}]`)
 })
