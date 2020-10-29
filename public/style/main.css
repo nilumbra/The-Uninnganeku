@@ -97,7 +97,7 @@ button:hover {
 
 /* Text Box styling */
 [data-ui="text"] {
-
+	background-color: rgb(92,92,92,0.7);
 }
 
 /* Character Name Style */
@@ -134,6 +134,7 @@ button:hover {
 
 /* Quick Menu Style */
 [data-ui="quick-menu"] {
+	background-color: rgb(92,92,92,0.7);
 
 }
 
