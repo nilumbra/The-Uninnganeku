@@ -160,7 +160,8 @@ var intro_0 = "You are among a group of adventurers in search for a great treatu
 **/
 var e_found_another_door = "Elizabeth called attention: there's also some clues on the wall and its says there was another small road near the door. It's up to you to choose where to go."
 var go_no_further = "When Alexei opened the door, there was dirt covering a noticable sign. Sophia clears dirt on the sign and it appears as a warning: Go no further, stay back or die here."
-var braun_hurts_sophia = "While following the route, they noticed the strange sound of an object or an animal in a distance. Braun suggest the group to walk behind him. The sound becomes louder step by step but nothing visible appeared. And then some mice appears, that freaks Braun out. While he's backing off, Braun accidentally hits and injures Sophia."
+var braun_hurts_sophia0 = "While following the route, you notice the strange sound of some beast in a distance. Braun suggest the group to walk behind him. The sound gets louder step by step but nothing visible appears."
+var braun_hurts_sophia1 = "Out of the darkness ahead, an army of mice appears and charges at you. Braun freaks out. While he's backing off, he hits and injures Sophia."
 var bob_appease_on_disagreement = "After hours of wandering, you and your teammate start to face disagreement on which of the fork road to follow. Bob comes just on time and tells you to follow him so he can lead you to the treasure. Jacob feels suspicious on him, suggesting to let him do his shamanistic rituals to assure Bob is on his side, and wait for sophia instead."
 var sophia_heal_herself_alone_and_murdered = "The healing process takes much time and it gets dark inside as outside. When everyone was distracted, thinking of what they can do with the treasure. Sophia screams once and turns silent from the next door. When you get inside, it was too late to save her. She was already dead and it's obvious that one of your teammate is the murderer."
 var bob_urges_and_encounter_cerberus = "Despite you walking a long way already, Bob is constantly urging you and your teammates to walk quicker. Suddenly, Multi-headed giant dog, just like Cerberus the greek monster, appears from the other end of the road. He seems to already pick up on your presence, as he started barking and the ruins starts to crumble. Braun is the only person felt excited about the existance of this kind of creature. That creature was right in front you, glaring with his red eyes like a hunter looking at his preys."
@@ -170,7 +171,8 @@ var he1_reunion = "After the reunion, 3 of you went back to the village. Along t
 var everyone_suspects_braun = "While you're searching for the flashlight, everyone starts to suspect Braun as a murderer, since he was the first to injure Sophia. You don't want to lose another member in the hand of murder, and the group asked you to decide Braun guilty or not."
 var bob_introduce_him_as_a_wise_man = "Bob introduce himselfas a old wise man, arrives as the dawn and Warns that someone other than Braun is the murderer and you have to be careful before you take action. "
 var alexie_suggests_elizabeth_is_imposter = "Alexei tells your team that Elizabeth might be the impostor of this group cause he couldn't find out her background before this expedition. After hearing that, Elizabeth was upset and talks about her childhood story and how pity her life was. She starts crying and wants you to stay with her until she feels better."
-
+var sophia_sacrificed = "He point his finger at Sophia, and she fainted out. He make a gesture to smash his fist towards his front, Sophia's body went forward toward the walls and disappeared inthe walls. Just after that, one of the wall collapsed."
+var immense_mirror = "As expected,  an immense mirror blocked your way, with a statue of an old man holding a precious stone beside, pointing toward the dragon in the mirror. The mirror reflexes a form of a dragon, and looks like the vicious dragon is about to rush out..."
 /**
  * ============================================
  *	Ending
@@ -178,12 +180,14 @@ var alexie_suggests_elizabeth_is_imposter = "Alexei tells your team that Elizabe
 **/
 var game_over0 = "you barely get out of the ruin and find yourself alive. Unfortunately, your teammates are all dead in that mad dog's hand . What's more, the whole ruin is gone to plies of rocks and ashes, burying your teamates, the treasure, and the truth upon the relic. All you can do now is went back to the villlage and wait for the next ship to arrive desperately"
 var game_over1 = "You are going in front of her, suddenly something really hard hits your head. You couldn't realize what was going on and that hard thing hits you back and forth. Just before you crumbles to the ground, you realize Elizabeth was an impostor."
-var game_over2 = "Someone, probably the murderer of Sophia, prepared traps on your way, knowing that you would come by. At the moment you realize, you are in a trap, bleeding, and far away from your teammates."
+var game_over2 = "Someone prepared traps on your way, knowing that you would come by. By the moment you realize this, you are already in the trap. The blades cuts into limbs and you are bleeding terribly. You start to feel extremly fatigued. And slowly you lose consciousness and fall into an eternal slumber."//Far away from your teammates, you can't even make a sound as
 //Braun fights against the team trying to kill him
 var game_over3 = "As anyone else would do, Braun fights against the whole team alone as his struggle towards your action. Your mistake is that you forgot that you  guys are just like a few kids trying to beat up an adult. He kills everyone else for defending himself."
 
 var game_over4 = 'While you are listening to her, she kills you before could notice with  a knife she hides in her clothes.'
+var game_over5 = "After a long  period, Braun managed to clear the rocks, but he was too late. All he found was two bodies together under large chunks of rocks."
 
+var fake_end = "The world suddenly forms to the same as you were from. And after that, you had great success to found uniganeku, you're obsessed with the joy of success. But no one in the group knows they are still in the world of mirror, trapped in an illusory universe that they will never able to get out."
 let script = {
 	// The game starts here.
 	// "English":{
@@ -267,7 +271,104 @@ let script = {
 		"end"
 	],
 	"Use_route_branch":[
-		"Use_route_branch",
+		"centered The road leads to a dead end. When you wanted to turn back, you spotted a small gap in the walls, barely enough for you and some other people with small figure to pass through.",
+		{"Choice":{
+		    "Slip through":{
+		    	"Text":"Slip through the gap",
+				"Do": "centered You decide to leave your companion and proceed alone."
+			},
+			"Turn back":{
+		    	"Text":"Turn back and use the other route",
+				"Do": "jump Alexi_branch1"
+			},
+		}},
+		"centered But you can't see anything there. Because there isn't any light.",
+		"display message Need_more_detail",
+		{"Choice":{
+		    "reach for the flashlight in your backpack and traverse the dark path":{
+		    	"Text":"rummage through your backpack",
+				"Do": "Rummaging through the backpack, you feel something cylindrical with a cold metalic touch."
+			},
+			"Turn back":{
+		    	"Text":"Turn back and use the other route",
+				"Do": "jump Alexi_branch1"
+			},
+		}},
+		"y !!",
+		"It is a flashlight.",
+		"s Wait for me! ",
+		"It seems that Sophia has come through as well. ",
+		"display message Need_more_detail",
+		"Walking though the dark, finally you can see an exit that transmitted the sun light, which illuminated the route before you. Your eyes met each other and smiled, Sophia's innocent smile help you relieved all of the stress.",
+		"While you are about to leave the structure, it suddenlly started collapsing.",
+		"centered You get trapped inside a dark chamber.",
+		//Script writes an old man here. But I changed it to Bob
+		"An old man appeared with a wind.",
+		"b I'm glad you found the right route, {{player.name}}. But you are now bounded forever in the stucture, because you left all your teammate alone",
+		"b My power is not enough to remove the curse, but I think a native Uninngamisian spell night save the situation.....",
+		"His voice faltered, waiting for you to decide.",
+		"s If... this is the only way to save your life......",
+		"You see Sophia burst into tears",
+		"s Than... please do it... I'm prepared to sacrifies my life for everyone.",
+		"display message Need_more_detail",
+		{"Choice":{
+			"leave the ruin":{
+				//Want to leave the ruin.sacrifice Sophia as a offering to the hell(a fresh heart of an islander can have a power to save the situation), 
+		    	"Text":"Sacrifice Sophia so you can leave the ruin",
+				"Do": "You decide to sacrifice Sophia as an offering to the hell(a fresh heart of an islander can have a power to save the situation)",
+			},
+			"stay with Sophia (refuse to sacrifice her)":{
+		    	"Text":"refuse to sacrifice Sophia and stay with her", //stay with Sophia
+				"Do": "jump Game_over5"
+			}
+		}},
+		"The old man nodded.",
+		"b Well then, I should let her pass away peacefully. Your noble sacrifice will forever be remember by us, young lady.",
+		`centered ${sophia_sacrificed}`,
+		"B Oh I found the leader!!",
+		"B Where have you been? We had a hard time finding you!",
+		"centered  All of your partners were worried about you, as if nothing had happened. No one seem to remember the fact that you forsake them.",
+		"j According to the map, now we're in a dangerous zone",
+		"An uncomfortable breeze get you goose bumps, the path was so quiet that you can only hear echoes and the wind.",
+		`centered ${immense_mirror}`,
+		{"Choice":{
+			"throw a rock into the mirror":{
+				//Want to leave the ruin.sacrifice Sophia as a offering to the hell(a fresh heart of an islander can have a power to save the situation), 
+		    	"Text":"throw a rock into the mirror",
+				"Do":  "The dragon shrinked to an Asian Arowana (a kind of fish) and loses its original strength."
+			},
+			"jump into the mirror":{
+		    	"Text":"jump into the mirror", 
+				"Do": "jump Use_route_branch1"
+			}
+		}},
+		"To be continued...",
+		"end"
+	],
+	"Use_route_branch1":[
+		"Everyone was terrified except Braun.",
+		"B Let me take over him...",
+		"display message Need_more_detail",
+		"He fights with the dragon and finds it is the one that could stand up to him, he fights till the last minute and dies with happiness.",
+		"B Finally, an opponent that wouldn't let me down.......",
+		"centered He finishes the sentence and passed away.",
+		"display message Need_more_detail",
+		"The crowd panicked and freaked out.",
+		`centered ${fake_end}`,
+		"scene #f5f10a with fadeIn",
+		"GAME OVER",
+		"end"
+	],
+	"Game_over5":[
+		"centered Sophia comforts you.",
+		"y I'll decide my own destiny. If there is a will, there's a way.",
+		"You refuse the objection.",
+		"b How pity...... Poor mortals. But with a good heart. Bless you for your next life.",
+		"The old man disappeared.",
+		"y Braun will be here in no time.",
+		`${game_over5}`,
+		"scene #f5f10a with fadeIn",
+		"GAME OVER",
 		"end"
 	],
 	"Alexi_branch1":[
@@ -279,9 +380,11 @@ let script = {
 			},
 			"Continue":{
 		    	"Text":"Follow this route",
-				"Do": `${braun_hurts_sophia}`
+				"Do": `${braun_hurts_sophia0}`
 			},
 		}},
+		"centered The ominously strange sound gets even clearer and louder",
+		`braun_hurts_sophia1`, 
 		"display message Need_more_detail",
 		{"Choice":{
 		    "Leave Sophia":{
