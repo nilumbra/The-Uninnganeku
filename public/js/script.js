@@ -188,6 +188,8 @@ var game_over4 = 'While you are listening to her, she kills you before could not
 var game_over5 = "After a long  period, Braun managed to clear the rocks, but he was too late. All he found was two bodies together under large chunks of rocks."
 
 var fake_end = "The world suddenly forms to the same as you were from. And after that, you had great success to found uniganeku, you're obsessed with the joy of success. But no one in the group knows they are still in the world of mirror, trapped in an illusory universe that they will never able to get out."
+
+var route_branch_he1 = "You guys bring the treasure back to the city and publishs the result of your research to the world. 3 of you shares the profit from the uninnganeku and become best friends."
 let script = {
 	// The game starts here.
 	// "English":{
@@ -342,9 +344,91 @@ let script = {
 				"Do": "jump Use_route_branch1"
 			}
 		}},
-		"To be continued...",
+		"centered The mirror is replaced by an aisle, you walked through it.",
+		"A river appeared into the view",
+		"j It seems like we have entered Uninnganekarst, we have to follow the stream.",
+		"j The undergound river leads to a huge lake. We are closer to the treasure.",
+		"B Hey there is a boat",
+		"You turn and see Braun already sitting in the boat, swaying side to side.",
+		"y Alright.",
+		"centered The plain boat was so small and dilapidated that it's unstable and started wobbling. It tilts toward Braun and start losing balance, the boat is sinking.",
+		"j Guys! Stay calm! We're gonna be OK!!",
+		"centered Though Jacob tries to clam the group, the rest of the guys are struggling and trying to find the solution to save their lives",
+		"During such a chaotic situation, you see Alexei and Elizabeth talking secretly.",
+		{"Choice":{
+			"discuss solution with Jacob":{
+				//Want to leave the ruin.sacrifice Sophia as a offering to the hell(a fresh heart of an islander can have a power to save the situation), 
+		    	"Text":"try to came up with alternate solution with Jacob",
+				"Do":  "y Oh nooooo!!"
+			},
+			"push Braun off into water":{
+		    	"Text":"push Braun off", 
+				"Do": "jump Game_over6",
+			}
+		}},
+		"You scream as you almost fall out of the boat. And you realize that's Alexei, whether he did it on purpose or not.",
+		{"Choice":{
+			//do nothing forgive Alexei 
+			"do nothing forgive Alexei":{
+		    	"Text":"Forgive him",
+				"Do":  "The old man appears again, his pet cloud support the tottering boat from capsizing."
+			},
+			//push both Elizabath and Alexei out of the boat (pretend it was an accident)
+			"push both Elizabeth and Alexei into water":{
+		    	"Text":"push Alexei and Elizabeth into water", 
+				"Do": "jump Use_route_branch2",
+			}
+		}},
+		{"Choice":{
+			//believe in your teammates
+			"believe in your teammates":{
+		    	"Text":"believe in your teammates",
+				"Do": "b Ugh......that's why I said the mortals are foolish....... whatever."
+			},
+			//push both Elizabath and Alexei out of the boat (pretend it was an accident)
+			"push both Elizabeth and Alexei into water":{
+		    	"Text":"push Alexei and Elizabeth into water", 
+				"Do": "jump Use_route_branch2",
+			}
+		}},
+		"b Uninnganekuwaholydesu...sagishiwaanatanonakaniimasu......",
+		"He cast a spell on you, and left with a bit of a letdown on his face.",
+		"The spell causes everyone to have the ability to breathe in the water, and equipped with a lantern-like organ on their head like an anglerfish to adapt to the dark underwater world.",
+		"s Wow, I can breathe in the water now.",
+		"e Yeah, and I felt like I'm sinking...",
+		"Dark in the water, there is a matter sparcling, attracting everyone's attention.",
+		"y This must be the treasure!",
+		"Swimming closer, you found the glimmer originated from the keyhole of the treasure box.",
+		"display message Need_more_detail",
+		"B So now everyone should start finding the key."
+
+
+
+	],
+	"Use_route_branch2":[
+		"After the two of them fell into the lake and disappeared, you explain to them your hypothesis and their actions while on the boat.",
+		"display message Need_more_detail",
+		"y I...I didn't know that there were such evil people in the group...",
+		"y I'm sorry that I was always searching for clues or ways to find the treasure, and overlook the teamwork and mistrusts people...",
+		"centered You, Braun and Jacob worked as a team had a great cooperation/teamwork on searching the treasure along the lake."
+	],
+	//Happy ending
+	"Use_route_branch3":[
+		"centered You see Uninnganeku on the shore.",
+		"B Is that......?!",
+
+		"j ......Yeah, it is. Mission complete, let's go home.",
+		"scene 770af5 fadeIn",
+		`${route_branch_he1}`,
 		"end"
 	],
+	"Game_over6":[
+		"while Braun was struggling, he broke the boat, all of you died.",
+		"scene #f5f10a with fadeIn",
+		"GAME OVER",
+		"end"
+	],
+	//inside immense_mirror
 	"Use_route_branch1":[
 		"Everyone was terrified except Braun.",
 		"B Let me take over him...",
