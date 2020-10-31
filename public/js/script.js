@@ -74,7 +74,8 @@ const images = {
 
 // Define the backgrounds for each scene.
 const scenes = {
-	"door": "door.jpg"
+	"door": "door.jpg",
+	"light_in_the_distance": "dark_tunnel_leading_to_light.jpeg"
 };
 
 // Define the Characters
@@ -116,7 +117,11 @@ const characters = {
 	  	"Name": "Braun",
 		"Color": "#B4339C",
 		"Face": "Braun.jpg"
-
+	},
+	"Sh":{
+		"Name": "Shark",
+		"Color": "#42e0f5",
+		"Face": ""
 	}
 
 };
@@ -171,8 +176,8 @@ var he1_reunion = "After the reunion, 3 of you went back to the village. Along t
 var everyone_suspects_braun = "While you're searching for the flashlight, everyone starts to suspect Braun as a murderer, since he was the first to injure Sophia. You don't want to lose another member in the hand of murder, and the group asked you to decide Braun guilty or not."
 var bob_introduce_him_as_a_wise_man = "Bob introduce himselfas a old wise man, arrives as the dawn and Warns that someone other than Braun is the murderer and you have to be careful before you take action. "
 var alexie_suggests_elizabeth_is_imposter = "Alexei tells your team that Elizabeth might be the impostor of this group cause he couldn't find out her background before this expedition. After hearing that, Elizabeth was upset and talks about her childhood story and how pity her life was. She starts crying and wants you to stay with her until she feels better."
-var sophia_sacrificed = "He point his finger at Sophia, and she fainted out. He make a gesture to smash his fist towards his front, Sophia's body went forward toward the walls and disappeared inthe walls. Just after that, one of the wall collapsed."
-var immense_mirror = "As expected,  an immense mirror blocked your way, with a statue of an old man holding a precious stone beside, pointing toward the dragon in the mirror. The mirror reflexes a form of a dragon, and looks like the vicious dragon is about to rush out..."
+var sophia_sacrificed = "He points his finger at Sophia, and she faints out. He makes a gesture to smash his fist towards his front. Sophia's body goes forward toward the walls and disappears into the walls. Just after that, one of the walls collapses."
+var immense_mirror = "As expected, an immense mirror blocked your way, with a statue of an old man holding a precious stone beside, pointing toward the dragon in the mirror. The mirror reflexes a form of a dragon, and looks like the vicious dragon is about to rush out..."
 /**
  * ============================================
  *	Ending
@@ -194,12 +199,10 @@ let script = {
 	// The game starts here.
 	// "English":{
 	"Start":[
-
-		"notify Welcome",
 		function(){
 	    	storage.player.name = Storage.get("playername");
 	    },
-	    "b Come on, you are late. We've been waiting for you.",
+	    "j Come on, you are late. We've been waiting for you.",
 		{"Conditional":{
 			"Condition": function() {
 				return storage.player.name !== null
@@ -284,11 +287,10 @@ let script = {
 				"Do": "jump Alexi_branch1"
 			},
 		}},
-		"centered But you can't see anything there. Because there isn't any light.",
-		"display message Need_more_detail",
 		{"Choice":{
+			"Text":"But you can't see anything there. Because there isn't any light.", 
 		    "reach for the flashlight in your backpack and traverse the dark path":{
-		    	"Text":"rummage through your backpack",
+		    	"Text":"Rummage through your backpack",
 				"Do": "Rummaging through the backpack, you feel something cylindrical with a cold metalic touch."
 			},
 			"Turn back":{
@@ -296,31 +298,30 @@ let script = {
 				"Do": "jump Alexi_branch1"
 			},
 		}},
-		"y !!",
-		"It is a flashlight.",
-		"s Wait for me! ",
+		"y It is a flashlight, O口O!",
+		"s Wait for me!",
 		"It seems that Sophia has come through as well. ",
 		"display message Need_more_detail",
-		"Walking though the dark, finally you can see an exit that transmitted the sun light, which illuminated the route before you. Your eyes met each other and smiled, Sophia's innocent smile help you relieved all of the stress.",
-		"While you are about to leave the structure, it suddenlly started collapsing.",
+		"Walking though the dark, finally you can see an exit that transmitted the sun light, which illuminated the route before you. Your eyes met each other and smiled, Sophia's innocent smile alleviates all of the stress.",
+		"centered While you are about to leave the structure, it suddenlly started collapsing.",
 		"centered You get trapped inside a dark chamber.",
 		//Script writes an old man here. But I changed it to Bob
-		"An old man appeared with a wind.",
-		"b I'm glad you found the right route, {{player.name}}. But you are now bounded forever in the stucture, because you left all your teammate alone",
-		"b My power is not enough to remove the curse, but I think a native Uninngamisian spell night save the situation.....",
-		"His voice faltered, waiting for you to decide.",
+		"centered An old man appeared with a wind.",
+		"b I'm glad you've found the right route, {{player.name}}. But you are now bounded forever in the stucture, because you left all your teammate alone",
+		"b My power is not enough to remove the curse, but I think a native Uninngamisia might save the situation.",
+		"centered His voice faltered, waiting for you to decide......",
 		"s If... this is the only way to save your life......",
-		"You see Sophia burst into tears",
-		"s Than... please do it... I'm prepared to sacrifies my life for everyone.",
+		"centered You see Sophia bursts into tears",
+		"s Then... please do it... I'm prepared to sacrifie my life for you.", //"you" was "everyone"
 		"display message Need_more_detail",
 		{"Choice":{
 			"leave the ruin":{
-				//Want to leave the ruin.sacrifice Sophia as a offering to the hell(a fresh heart of an islander can have a power to save the situation), 
+				//Want to leave the ruin.sacrifice Sophia as a offering to the hell.<span style="color:red"<b>(a fresh heart of an islander can have a power to save the situation), 
 		    	"Text":"Sacrifice Sophia so you can leave the ruin",
-				"Do": "You decide to sacrifice Sophia as an offering to the hell(a fresh heart of an islander can have a power to save the situation)",
+				"Do": "You decide to sacrifice Sophia as an offering to the hell. It is said that a fresh heart of an islander can have a power to save the situation.",
 			},
 			"stay with Sophia (refuse to sacrifice her)":{
-		    	"Text":"refuse to sacrifice Sophia and stay with her", //stay with Sophia
+		    	"Text":"Refuse to sacrifice Sophia and stay with her", //stay with Sophia
 				"Do": "jump Game_over5"
 			}
 		}},
@@ -329,29 +330,29 @@ let script = {
 		`centered ${sophia_sacrificed}`,
 		"B Oh I found the leader!!",
 		"B Where have you been? We had a hard time finding you!",
-		"centered  All of your partners were worried about you, as if nothing had happened. No one seem to remember the fact that you forsake them.",
+		"centered  All of your partners are worried about you, as if nothing had happened. No one seems to remember the fact that you forsake them.",
 		"j According to the map, now we're in a dangerous zone",
-		"An uncomfortable breeze get you goose bumps, the path was so quiet that you can only hear echoes and the wind.",
+		"An uncomfortable breeze gets you goose bumps, the path is so quiet that you can only hear echoes and the wind.",
 		`centered ${immense_mirror}`,
 		{"Choice":{
 			"throw a rock into the mirror":{
 				//Want to leave the ruin.sacrifice Sophia as a offering to the hell(a fresh heart of an islander can have a power to save the situation), 
 		    	"Text":"throw a rock into the mirror",
-				"Do":  "The dragon shrinked to an Asian Arowana (a kind of fish) and loses its original strength."
+				"Do":  "The dragon shrinks to an Asian Arowana and loses its original strength."
 			},
 			"jump into the mirror":{
 		    	"Text":"jump into the mirror", 
 				"Do": "jump Use_route_branch1"
 			}
 		}},
-		"centered The mirror is replaced by an aisle, you walked through it.",
-		"A river appeared into the view",
+		"centered The mirror is replaced by an aisle, you walk through it.",
+		"A river appears into the view.",
 		"j It seems like we have entered Uninnganekarst, we have to follow the stream.",
 		"j The undergound river leads to a huge lake. We are closer to the treasure.",
-		"B Hey there is a boat",
+		"B Hey there is a boat.",
 		"You turn and see Braun already sitting in the boat, swaying side to side.",
 		"y Alright.",
-		"centered The plain boat was so small and dilapidated that it's unstable and started wobbling. It tilts toward Braun and start losing balance, the boat is sinking.",
+		"centered The plain boat is so small and dilapidated that it's unstable and starts wobbling. It tilts toward Braun and starts losing balance. The boat is sinking.",
 		"j Guys! Stay calm! We're gonna be OK!!",
 		"centered Though Jacob tries to clam the group, the rest of the guys are struggling and trying to find the solution to save their lives",
 		"During such a chaotic situation, you see Alexei and Elizabeth talking secretly.",
@@ -371,7 +372,7 @@ let script = {
 			//do nothing forgive Alexei 
 			"do nothing forgive Alexei":{
 		    	"Text":"Forgive him",
-				"Do":  "The old man appears again, his pet cloud support the tottering boat from capsizing."
+				"Do":  "The old man appears again. His pet cloud supports the tottering boat from capsizing."
 			},
 			//push both Elizabath and Alexei out of the boat (pretend it was an accident)
 			"push both Elizabeth and Alexei into water":{
@@ -379,6 +380,7 @@ let script = {
 				"Do": "jump Use_route_branch2",
 			}
 		}},
+		"B Here is your a final warning: Be aware of an impostor among you.",
 		{"Choice":{
 			//believe in your teammates
 			"believe in your teammates":{
@@ -392,25 +394,88 @@ let script = {
 			}
 		}},
 		"b Uninnganekuwaholydesu...sagishiwaanatanonakaniimasu......",
-		"He cast a spell on you, and left with a bit of a letdown on his face.",
+		"He casts a spell on you, and leaves with a bit of a letdown on his face.",
 		"The spell causes everyone to have the ability to breathe in the water, and equipped with a lantern-like organ on their head like an anglerfish to adapt to the dark underwater world.",
 		"s Wow, I can breathe in the water now.",
-		"e Yeah, and I felt like I'm sinking...",
-		"Dark in the water, there is a matter sparcling, attracting everyone's attention.",
+		"e Yeah, and I feel like I'm sinking...",
+		"Dark in the water, there is a matter sparkling, attracting everyone's attention.",
 		"y This must be the treasure!",
-		"Swimming closer, you found the glimmer originated from the keyhole of the treasure box.",
+		"Swimming closer, you find the glimmer originated from the keyhole of the treasure box.",
 		"display message Need_more_detail",
-		"B So now everyone should start finding the key."
+		"j So now everyone should start looking for the key.",
+		"Elizabeth approaches you with concern on her charming face, she lowers her voice and whispers...",
+		"e Sorry to bring this up to you suddenly, but I am afraid your life would be threatened......",
+		"e Alexei is a spy and hails from Soviet.",
+		{"Choice":{
+			//Thisis compulsory 
+			"Text": "e He knows all of your weakness and even wants to push you off the boat before.",
+		    //>>>>>>>>>>>NEEDS CHECK
+		    "kill Alexei":{
+		    	"Text":"Kill Alexei",
+				"Do": "a Ehh......Beware of Elizabe......"
+			}
+		}},
+		"centered The light in his eyes dies out and Alexei disappears in the dark. Elizabeth remain silence.",
+		{"Choice":{
+		    "Trust Elizabeth":{
+		    	"Text":"Trust Elizabeth",
+				"Do": "You trust Elizabeth."
+			},
+			"Kill Elizabeth":{
+		    	"Text":"Kill Elizabeth",
+				"Do": "jump Use_route_branch4"
+			},
+		}},
+		"centered To assure Jacob on your trust, you suggested to work on finding the key of the box while split to two small teams to make it more effective. You go with Elizabeth.",
+		"While you two are alone, Elizabeth burst into tears...",
+		"e Thank you for trusting me...",
+		"y ......",
+		"She then tell the whole tory of her tragic childhood.",
+		"e I have to find the treasure to pay my debts laid by others. I have no family and homeless. I was raised up in an orphanage...",
 
+		"While listening to her story, you found the key. Suddenly, Elizabeth snatched the key and pierced it into your chest.",
+		"As you slowly swallowed the the depth of the lake, you hear a voice.",
+		"e From now on, no one could stop me......" //Game over. Bad ending.
+	],
 
-
+	//You killed Elizabeth believing in Alexei's word before his death
+	"Use_route_branch4":[
+		"You realize that Elizabeth is the mastermind who plans to kill others and takes away the treasure, so you decide to kill her.",
+		"After that, Braun and Jacob and you work as a team, searching for the key.",
+		"B How are we gonna find that tiny key in such a big area?",
+		"j Sorry, my map got wet and I lost it when we were on the boat, I have no idea...",
+		"centered A shark approaches toward you, Braun quikly switches on alert mode to protect you. Just as Braun is about to attack the huge shark...",
+		"Sh Wait a minute, I'm not here to harm you, but to help good people.",
+		"It starts speaking English with a humane tone.",
+		"Sh Don't put any effort on finding the key! Any thing here, Uninngafakelake, is fake, the real one is on the land.",
+		{"Choice":{
+		    "let Braun turf it out":{
+		    	"Text":"Let Braun turf it out",
+				"Do": "You don't trust the shark. So you shoo it away. It leaves sadly and never appeared again."
+			},
+			"Trust it":{
+		    	"Text":"Trust it",
+				"Do": "jump Trust_shark"
+			},
+		}},
+		"You search for the key non-stop but to no avail. In despair, you leave the ruin and abandon the mission." //GAME OVER. Bad Ending.	
+	],
+	"Trust_shark":[
+		"The shark has flat teeth and eat plants for a living, in other word, it's a herbivore shark.",
+		"Sh My mission is to bring fortune to good people, since we trust and respect each other, I will take you to the location of Uninnganeku",
+		"centered You get along with it, so the shark swallows you into its stomache, keeping you safe from the evil current in Uninngafakelake.",
+		"Sh Well, good luck then. Please put my skull, uninnganeku, into good use...",
+		"centered The shark transforms into human form of the patron saint of the island.",
+		"centered It puts you on the shore.",
+		"jump Use_route_branch3"
 	],
 	"Use_route_branch2":[
 		"After the two of them fell into the lake and disappeared, you explain to them your hypothesis and their actions while on the boat.",
 		"display message Need_more_detail",
 		"y I...I didn't know that there were such evil people in the group...",
 		"y I'm sorry that I was always searching for clues or ways to find the treasure, and overlook the teamwork and mistrusts people...",
-		"centered You, Braun and Jacob worked as a team had a great cooperation/teamwork on searching the treasure along the lake."
+		"centered You, Braun and Jacob worked as a team had a great cooperation/teamwork on searching the treasure along the lake.",
+		"jump Use_route_branch3"
 	],
 	//Happy ending
 	"Use_route_branch3":[
@@ -446,9 +511,10 @@ let script = {
 	"Game_over5":[
 		"centered Sophia comforts you.",
 		"y I'll decide my own destiny. If there is a will, there's a way.",
-		"You refuse the objection.",
+		"display message Need_more_detail",
+		"centered You refuse the objection.",
 		"b How pity...... Poor mortals. But with a good heart. Bless you for your next life.",
-		"The old man disappeared.",
+		"centered The old man disappeared.",
 		"y Braun will be here in no time.",
 		`${game_over5}`,
 		"scene #f5f10a with fadeIn",
@@ -466,6 +532,7 @@ let script = {
 		    	"Text":"Follow this route",
 				"Do": `${braun_hurts_sophia0}`
 			},
+
 		}},
 		"centered The ominously strange sound gets even clearer and louder",
 		`braun_hurts_sophia1`, 
@@ -604,7 +671,8 @@ let script = {
 		`${bob_introduce_him_as_a_wise_man}`,
 		{"Choice":{
 		    "dont believe in Bob":{
-		    	"Text":"Suspect Bob",
+		    	//Suspect Bob and kill Braun instead
+		    	"Text":"Suspect Bob and kill Braun instead",
 				"Do": "jump Game_over3",
 			},
 			"Believe in Bob and continue journey":{

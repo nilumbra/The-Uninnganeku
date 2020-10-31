@@ -10,6 +10,7 @@
 			},
 		}}
 
+<span style="color:red"<b></b></span>
 ===========================
 MESSAGE
 ===========================
@@ -20,5 +21,9 @@ GAME OVER
 ===========================
 "scene #f5f10a with fadeIn",
 		"GAME OVER",
+		"end"
+
+"scene 770af5 fadeIn",
+		"he",
 		"end"
 */
