@@ -96,12 +96,12 @@ const characters = {
 	"j":{
         "Name": "Jacob",
 		"Color": "#4574A9" ,
-		"Face": "Jacob.jpeg"		
+		"Face": "Jacob.png"		
 	},
 	"e":{
 	  	"Name": "Elizabeth",
 		"Color": "#FAB340",
-		"Face": "Elizabeth.jpeg"	
+		"Face": "Elizabeth.png"	
 	},
 	"b":{
 	  	"Name": "Bob",
@@ -116,12 +116,12 @@ const characters = {
 	"B":{
 	  	"Name": "Braun",
 		"Color": "#B4339C",
-		"Face": "Braun.jpg"
+		"Face": "Braun.png"
 	},
 	"Sh":{
 		"Name": "Shark",
 		"Color": "#42e0f5",
-		"Face": ""
+		"Face": "Shark.png"
 	}
 
 };
@@ -329,7 +329,7 @@ let script = {
 		"b Well then, I should let her pass away peacefully. Your noble sacrifice will forever be remember by us, young lady.",
 		`centered ${sophia_sacrificed}`,
 		"B Oh I found the leader!!",
-		"B Where have you been? We had a hard time finding you!",
+		"B Where have you been? We had a hard time looking for you!",
 		"centered  All of your partners are worried about you, as if nothing had happened. No one seems to remember the fact that you forsake them.",
 		"j According to the map, now we're in a dangerous zone",
 		"An uncomfortable breeze gets you goose bumps, the path is so quiet that you can only hear echoes and the wind.",
@@ -380,12 +380,12 @@ let script = {
 				"Do": "jump Use_route_branch2",
 			}
 		}},
-		"B Here is your a final warning: Be aware of an impostor among you.",
+		"b Here is your a final warning: Be aware of an impostor among you.",
 		{"Choice":{
 			//believe in your teammates
 			"believe in your teammates":{
 		    	"Text":"believe in your teammates",
-				"Do": "b Ugh......that's why I said the mortals are foolish....... whatever."
+				"Do": "......"
 			},
 			//push both Elizabath and Alexei out of the boat (pretend it was an accident)
 			"push both Elizabeth and Alexei into water":{
@@ -393,6 +393,7 @@ let script = {
 				"Do": "jump Use_route_branch2",
 			}
 		}},
+		"b Ugh......that's why I said the mortals are foolish....... whatever.",
 		"b Uninnganekuwaholydesu...sagishiwaanatanonakaniimasu......",
 		"He casts a spell on you, and leaves with a bit of a letdown on his face.",
 		"The spell causes everyone to have the ability to breathe in the water, and equipped with a lantern-like organ on their head like an anglerfish to adapt to the dark underwater world.",
@@ -461,10 +462,10 @@ let script = {
 		"You search for the key non-stop but to no avail. In despair, you leave the ruin and abandon the mission." //GAME OVER. Bad Ending.	
 	],
 	"Trust_shark":[
-		"The shark has flat teeth and eat plants for a living, in other word, it's a herbivore shark.",
-		"Sh My mission is to bring fortune to good people, since we trust and respect each other, I will take you to the location of Uninnganeku",
+		"The shark has flat teeth and eats plants for a living, in other word, it's a herbivore shark.",
+		"Sh My mission is to bring fortune to good people, since we trust and respect each other, I will take you to Uninnganeku",
 		"centered You get along with it, so the shark swallows you into its stomache, keeping you safe from the evil current in Uninngafakelake.",
-		"Sh Well, good luck then. Please put my skull, uninnganeku, into good use...",
+		"Sh Well, good luck then. Please put my skull, Uninnganeku, to good use...",
 		"centered The shark transforms into human form of the patron saint of the island.",
 		"centered It puts you on the shore.",
 		"jump Use_route_branch3"
@@ -480,9 +481,8 @@ let script = {
 	//Happy ending
 	"Use_route_branch3":[
 		"centered You see Uninnganeku on the shore.",
-		"B Is that......?!",
-
-		"j ......Yeah, it is. Mission complete, let's go home.",
+		"j Is that......?!",
+		"y ......Yeah, it is. Mission complete, let's go home.",
 		"scene 770af5 fadeIn",
 		`${route_branch_he1}`,
 		"end"
@@ -535,7 +535,7 @@ let script = {
 
 		}},
 		"centered The ominously strange sound gets even clearer and louder",
-		`braun_hurts_sophia1`, 
+		`${braun_hurts_sophia1}`, 
 		"display message Need_more_detail",
 		{"Choice":{
 		    "Leave Sophia":{

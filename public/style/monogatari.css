@@ -306,7 +306,9 @@ textarea {
 [data-ui="face"] {
 	display: inline-block;
 	float: left;
-	width: 80px;
+	width: 50px;
+	border-radius: 50%;
+	box-shadow: 1px 1px 1px #333;
 	max-height: 20% !important;
 	position: initial !important;
 }
