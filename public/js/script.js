@@ -75,7 +75,15 @@ const images = {
 // Define the backgrounds for each scene.
 const scenes = {
 	"door": "door.jpg",
-	"light_in_the_distance": "dark_tunnel_leading_to_light.jpeg"
+	"light_in_the_distance": "dark_tunnel_leading_to_light.jpeg",
+	"cave": "cave.jpg",
+	"dragon_in_the_mirror": "dragon_in_the_mirror.jpg",
+	"collapse0": "game_over0.jpg",
+	"happy_reunion": "he1_reunion.jpg",
+	"river": "river_appears_into_view.jpg",
+	"shark": "shark.jpg",
+	"sophia_injured": "sophia_injured.jpg",
+	"game_over": "game_over.png"
 };
 
 // Define the Characters
@@ -276,15 +284,15 @@ let script = {
 		"end"
 	],
 	"Use_route_branch":[
-		"centered The road leads to a dead end. When you wanted to turn back, you spotted a small gap in the walls, barely enough for you and some other people with small figure to pass through.",
 		{"Choice":{
+			"Text": "The road leads to a dead end. When you wanted to turn back, you spotted a small gap in the walls, barely enough for you and some other people with small figure to pass through.",
 		    "Slip through":{
 		    	"Text":"Slip through the gap",
 				"Do": "centered You decide to leave your companion and proceed alone."
 			},
 			"Turn back":{
 		    	"Text":"Turn back and use the other route",
-				"Do": "jump Alexi_branch1"
+				"Do": "jump Farrel_branch0"
 			},
 		}},
 		{"Choice":{
@@ -580,7 +588,7 @@ let script = {
 	"Game_over2":[
 		"display message Need_more_detail",	
 		`${game_over2}`,
-		"scene #f5f10a with fadeIn",
+		"scene game_over with slideInDown",
 		"GAME OVER",
 		"end"
 	],
@@ -643,7 +651,7 @@ let script = {
 	],
 	"Game_over1":[
 		`${game_over1}`,
-		"scene #f5f10a with fadeIn",
+		"scene game_over with slideInDown",
 		"GAME OVER",
 		"end"
 	],
@@ -662,7 +670,7 @@ let script = {
 	],
 	"Game_over3":[
 		`${game_over3}`,
-		"scene #f5f10a with fadeIn",
+		"scene game_over with slideInDown",
 		"GAME OVER",
 		"end"
 	],
@@ -730,8 +738,243 @@ let script = {
 		"display message Need_more_detail",
 		`${game_over4}`,
 		"e 'From now on, no one could stop me. Ha ha ha. Ha ha ha ha ha ha.'",
-		"scene #f5f10a with fadeIn",
+		"scene game_over with slideInDown",
 		"GAME OVER",
+		"end"
+	],
+	"Game_over7":[
+		"scene game_over with slideInDown",
+		"You die.",
+		"end"
+	],
+	"Game_over8":[
+		"centered You try to crawl your way to the entrance while screaming for help.",
+		"scene game_over with slideInDown",
+		"No one responds. Gradually, you lose conciousness and fade away from this world...",
+		"end"
+	],
+	"Game_over9":[
+		"centered You run away in panic, leaving behind your group members.",
+		"centered Without paying attention to the road, you step on a trap, triggering a crossbow bolt.",
+		"centered The bolt hits you right through the chest, rupturing your vital organs.",
+		"scene game_over with slideInDown",
+		"You die in pain.",
+		"end"
+	],
+
+	//=======Farrel Branch starts here
+	"Farrel_branch0":[
+		"centered The moment you try to return, the building begins to collapse.",
+		"You are left alone in absolute darkness.",
+		{"Choice":{
+		    "Go through the dark way using your flashlight":{
+		    	"Text":"Go through the dark way using your flashlight",
+				"Do": "jump Farrel_branch1"
+			},
+			"Wait for your group to help you":{
+		    	"Text":"Wait for your group to help you",
+				"Do": "You decide to wait for your group coming to save you."
+			},
+		}},
+		"centered Alone and defenseless in the ruin, you fear that something might happen to you. You cling to the rocks that separate you from your friends.",
+		"......",
+		"centered For hours you've waited, yet nothing happened.",
+		"centered When you're about to drown in despair, a glitter of hope reveals itself.",
+		"centered Overhead, a shaft of light went through the blocked passage.", 
+		"centered Someone is trying to move the rocks!", 
+		"centered Nearly unconciously, you help to push the rocks that block the passage.",
+		"centered Not long after, a huge humanoid figure appears.",
+		"centered Your eyes, adjusting themselves to the light, are yet able to tell who it is, but you just know it's Braun.",
+		"centered When you finally recover your sight, you recognize all five members of your group are standing there.",
+		"You have been saved.",
+		{"Choice":{
+		    "Whine about how long you've wait":{
+		    	"Text":"Whine about how long you've wait",
+				"Do": "......"
+			},
+			"Thank Braun for helping you.":{
+		    	"Text":"Thank Braun for saving you.",
+				"Do": "jump Farrel_branch2"
+			},
+		}},
+		"e 😒😒",
+		"a 😒😒",
+		"B 😡😡😡",
+		"Your group look at you with disgust.",
+		{"Choice":{
+			"Text": "Sophia tries to convince your group that you are exhausted and didn't mean what you said.",
+		    "Apologize for what you said":{
+		    	"Text":"Apologize for what you said",
+				"Do": "jump Farrel_branch2"
+			}
+		}}
+	],
+
+
+	//Hit by Poisoned Arrow
+	"Farrel_branch1":[
+		"centered You begin to traverse the dark way. Your vision is limited and you rely only on your flashlight to guide you.",
+		"centered As you walk along, suddenly you realize you've stepped into some contraption.",
+		"centered And before you know it, your right knee is pierced by something sharp.",
+		{"Choice":{
+			"Text": "You direct your flashlight to your knee, and it turns out an arrow coated in poison has hit your right knee.",
+		    "Commit suicide":{
+
+		    	"Text":"Kill yourself",
+				"Do": "jump Game_over7"
+			},
+			"Crawl back to the entrance while shouting 'help!'":{
+		    	"Text":"Crawl back to the entrance while shouting 'help!'",
+				"Do": "jump Game_over8"
+			},
+			"Quit being an adventurer and become a guard in a city":{
+				"Text": "Quit being an adventurer and become a guard in a city",
+				"Do":"You have discovered a secret ending."
+			}
+		}},
+		"Your character has become an NPC, so you cannot continue your journey.",
+		//Credits
+		"end"
+	],
+	"Farrel_branch2":[
+		// "scene dragon_in_the_mirror with shake infinite",
+		"centered You continue your journey despite Jacob recommending you to rest first",
+		"You and your group meet a lot of traps in the ruin. But you overcome all of them by working together.",
+		"As you walk along, you stumble upon a skeleton.",
+		"You see a book in its hand and you pick and open it up.",
+		"Apperently, it's a diary the deceased man keeps about his long journey to this island and what happened when he was trapped here...",
+		{"Choice":{
+			"Text": "You are appalled by the account the diary's owner writes about witnessing his company degenerated into cannibalism.",
+		    "Run away in fear and leave evryone behind":{
+		    	"Text":"Stay away from your group",
+				"Do": "jump Game_over9"
+			},
+			"Take the diary and continue your journey":{
+		    	"Text":"Stay with your group",
+				"Do": "You decide to stay with your group and continue your journey."
+			},
+		}},
+		"Soon you arrive at an another door.",
+		"From its look and how long you've walked, Jacob says it must be the door to the treasure room.",
+		
+		"But it's getting dark, So, as the leader, you have to decide whether to keep on going or take a rest for now.",
+		{"Choice":{
+		    "Rest for now":{
+		    	"Text":"Take a rest for now",
+				"Do": "jump Farrel_branch3"
+			},
+			"Continue your expedition":{
+		    	"Text":"Continue your expedition",
+				"Do": "jump Use_route_branch"
+			},
+		}},
+		"scene #C0FFEE fadeIn",
+		"end"
+	],
+	"Farrel_branch3":[
+		"zᶻZ... zᶻZ...",
+		"centered You wake up at dusk, everyone is nowhere to be found.",
+		"centered You notice there is a note lying next to you. You pick it up.", 
+		{"Choice":{
+			"Text":"It tells you your group left you behind because you slept so heavily that they weren't able to wake you up. They are also very kind to suggest you take more rest.",
+		    "Set up a bonfire and wait":{
+		    	"Text":"Set up a bonfire while waiting your group return",
+				"Do": "jump Bonfire",
+			},
+			"Go to the ruin and try to find your group":{
+		    	"Text":"Go to the ruin and look for your group",
+				"Do": "jump Farrel_branch4"
+			},
+		}}
+	],
+	"Bonfire":[
+		"centered You set up the fire but your group is still nowhere to be seen.", 
+		{"Choice":{
+			"Text": "For another half an hour you wait, your group returns but Alexei is missing.",
+		    "Wait for Alexei outside":{
+		    	"Text":"Wait for Alexei outside",
+				"Do": "jump Game_over10",
+			},
+			"Search for Alexei inside the ruin":{
+		    	"Text":"Search for Alexei",
+				"Do": "jump Find_Alexei"
+			},
+		}}
+		
+	],
+	"Farrel_branch4":[
+		"centered Despite being afraid, you walk towards the ruin and look for your group.",
+		"centered You figure it is better to reunite with your group as fast as you can.", 
+		{"Choice":{
+			"Text": "You run into Elizabeth in the middle of the way.",
+		    "Ask where the others are":{
+		    	"Text":"Ask where the others are",
+				"Do": "jump Game_over13",
+			},
+			"ask what she's doing":{
+		    	"Text":"Ask what she's doing",
+				"Do": "jump Game_over14"
+			},
+		}},
+	],
+	"Game_over13":[
+		"e Come with me. They are only a few hundred feet away from here.",
+		"You followe her but she turns out of blue and stabs you.",
+		"scene game_over with slideInDown",
+		"You died.",
+		"end"
+	]
+	,
+	"Game_over14":[
+		"e I..I just find these traps here. You know, I'm trying to disarm these so that the others won't get hurt on their way back",
+		{"Choice":{
+			"Text": "She sounds weirdly confident as she stutters. You come closer.",
+			//Compulsory
+		    "Check the disarmed trap (compulsory)":{ 
+		    	"Text":"Check the disarmed trap",
+				"Do": "You inspect the disarmed trap, but it looks instead like a newly set up trap.",
+			}
+		}},
+		"scene game_over with slideInDown",
+		"Before you realize, a knife pierces through your back all the way to your chest.",
+		"end"
+	],
+
+	"Game_over10":[
+		"Over the night, Alexei still doesn't show up. You decide to continue the expedition and manage to get your hands on the treasure.",
+		"scene game_over with fadeIn 1000",
+		"However, as you wait for the next ship to come, Elizabeth disappears with the treasure, leaving the rest of you behind, shocked.", // bad end
+		"end"
+	],
+
+	"Find_Alexei":[
+		"centered You and your team spread out to find Alexei.",
+		"centered As you gets alone, suddenly Elizabeth comes at you, sniggering.",
+		{"Choice":{
+			"Text": "You see the knife in her right hand. She's the imposter!",
+		    "Run and scream for help":{
+		    	"Text":"Run and scream for help",
+				"Do": "jump Game_over11"
+			},
+			"Fight her":{
+		    	"Text":"Fight her",
+				"Do": "jump Game_over12"
+			},
+		}}
+	],
+	"Game_over11":[
+		"centered You fall into her trap and get your feet chopped off.",
+		"centered Elizabeth stabs you in your chest. But you let out a scream before it.",
+		"centered Braun hears you and manages to kill Elizabeth.",
+		"scene game_over with slideInDown",
+		"You are nowhere to be saved. Before you lose your consciousness,however, you smile as you find out who's the imposter after all",
+		"end"
+	],
+	"Game_over12":[
+		"centered you underestimate what a weapon can do. You have no weapon and therefore no means to defend yourself.",
+		"centered Elizabeth sends the tip of her knife into your stomach, piercing your vital organs.", //bad ending
+		"scene game_over with slideInDown",
+		"You die.",
 		"end"
 	]
 };
