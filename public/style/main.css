@@ -132,7 +132,7 @@ button:hover {
 [data-ui="who"] {
 	width:0;
 	position: absolute;
-    top: -2.1em;
+    top: -1.8em;
 /*
     background: rgb(140,140,140,0.7);
 	border-style: dotted;
@@ -188,7 +188,7 @@ button:hover {
 
 /* Quick Menu Style */
 [data-ui="quick-menu"] {
-	background-color: rgb(92,92,92,0.7);
+	background-color: transparent;
 	width:100%;
 
 }

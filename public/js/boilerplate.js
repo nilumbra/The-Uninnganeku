@@ -15,6 +15,7 @@
 MESSAGE
 ===========================
 "display message Need_more_detail"
+rotateIn
 
 ===========================
 GAME OVER

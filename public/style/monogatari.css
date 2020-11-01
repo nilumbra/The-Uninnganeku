@@ -50,7 +50,7 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 	color: rgba(0, 0, 0, 0.5);
-	background-color: #020202;
+	background-color: #f7f7f7;
 }
 
 body.light {
