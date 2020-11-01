@@ -43,12 +43,21 @@ let notifications = {
 };
 
 // Define the Particles JS Configurations used in the game
-let particles = {
-
-};
+let particles = {"universe": {"particles":{"number":{"value":0,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true}};
 
 // Define the music used in the game.
 const music = {
+	"Friend": "friend.mp3",
+	"Rebel": "rebel.mp3",
+	"Path":"path.mp3",
+	"Newhope": "newhope.mp3",
+	"Waste": "GTA5_Waste.mp3",
+	"Wallemdtown": "wallemdtown.mp3",
+	"Darkness": "darkness.mp3",
+	"Darkest_Night": "darkest_night.mp3",
+	"Healing04": "maoudamashii_healing04.mp3",
+	"Healing05": "maoudamashii_healing05.mp3",
+
 
 };
 
@@ -83,7 +92,8 @@ const scenes = {
 	"river": "river_appears_into_view.jpg",
 	"shark": "shark.jpg",
 	"sophia_injured": "sophia_injured.jpg",
-	"game_over": "game_over.png"
+	"game_over": "game_over.png",
+
 };
 
 // Define the Characters
@@ -164,14 +174,16 @@ var jacob_life = "Jacob is a highly eccentric psychiatrist. Brought up in Hawaii
  *	Tutorial&Instruction
  * ============================================
 **/
-var intro_0 = "You are among a group of adventurers in search for a great treature which they call Uninnganeku. But you have heard one of them is an imposter who is going take away all the loot and kill those who get in the way…"
+var intro_0 = "Hi {{player.name}}. Since you come all the way here, I suppose you've heard things about this adventure from Jacob. But just in case you get confused, I'm gonna brief you on the situation again anyway." 
+ 
 
 /**
  * ============================================
  *	Narration
  * ============================================
 **/
-var e_found_another_door = "Elizabeth called attention: there's also some clues on the wall and its says there was another small road near the door. It's up to you to choose where to go."
+var e_found_another_door = "e Look. There're also some signs on this side of the walls. Says there's another... um road or tunnel near that door."
+
 var go_no_further = "When Alexei opened the door, there was dirt covering a noticable sign. Sophia clears dirt on the sign and it appears as a warning: Go no further, stay back or die here."
 var braun_hurts_sophia0 = "While following the route, you notice the strange sound of some beast in a distance. Braun suggest the group to walk behind him. The sound gets louder step by step but nothing visible appears."
 var braun_hurts_sophia1 = "Out of the darkness ahead, an army of mice appears and charges at you. Braun freaks out. While he's backing off, he hits and injures Sophia."
@@ -184,8 +196,8 @@ var he1_reunion = "After the reunion, 3 of you went back to the village. Along t
 var everyone_suspects_braun = "While you're searching for the flashlight, everyone starts to suspect Braun as a murderer, since he was the first to injure Sophia. You don't want to lose another member in the hand of murder, and the group asked you to decide Braun guilty or not."
 var bob_introduce_him_as_a_wise_man = "Bob introduce himselfas a old wise man, arrives as the dawn and Warns that someone other than Braun is the murderer and you have to be careful before you take action. "
 var alexie_suggests_elizabeth_is_imposter = "Alexei tells your team that Elizabeth might be the impostor of this group cause he couldn't find out her background before this expedition. After hearing that, Elizabeth was upset and talks about her childhood story and how pity her life was. She starts crying and wants you to stay with her until she feels better."
-var sophia_sacrificed = "He points his finger at Sophia, and she faints out. He makes a gesture to smash his fist towards his front. Sophia's body goes forward toward the walls and disappears into the walls. Just after that, one of the walls collapses."
-var immense_mirror = "As expected, an immense mirror blocked your way, with a statue of an old man holding a precious stone beside, pointing toward the dragon in the mirror. The mirror reflexes a form of a dragon, and looks like the vicious dragon is about to rush out..."
+var sophia_sacrificed = "He points his finger at Sophia. Sophia faints out. He then makes a gesture to smash his fist towards his front. Sophia's body goes toward and disappears into the walls. Just after that, one of the walls collapses completely."
+var immense_mirror = "As expected, an immense mirror blocks your way, with a statue of an old man holding a precious stone beside, pointing toward the dragon in the mirror. The mirror reflects a form of a dragon, and looks like the vicious dragon is about to rush out..."
 /**
  * ============================================
  *	Ending
@@ -198,21 +210,25 @@ var game_over2 = "Someone prepared traps on your way, knowing that you would com
 var game_over3 = "As anyone else would do, Braun fights against the whole team alone as his struggle towards your action. Your mistake is that you forgot that you  guys are just like a few kids trying to beat up an adult. He kills everyone else for defending himself."
 
 var game_over4 = 'While you are listening to her, she kills you before could notice with  a knife she hides in her clothes.'
-var game_over5 = "After a long  period, Braun managed to clear the rocks, but he was too late. All he found was two bodies together under large chunks of rocks."
+var game_over5 = "What he only finds are two bodies lying next to each other under large chunks of rocks."
 
-var fake_end = "The world suddenly forms to the same as you were from. And after that, you had great success to found uniganeku, you're obsessed with the joy of success. But no one in the group knows they are still in the world of mirror, trapped in an illusory universe that they will never able to get out."
+var fake_end = "The world suddenly forms to the same as you were from. And after that, you have great success to find Unniganeku. You're obsessed with the joy of success. But no one in the group knows they are still in the world of mirror, trapped in an illusory universe that they will never able to get out."
 
 var route_branch_he1 = "You guys bring the treasure back to the city and publishs the result of your research to the world. 3 of you shares the profit from the uninnganeku and become best friends."
 let script = {
 	// The game starts here.
 	// "English":{
 	"Start":[
-		function(){
-	    	storage.player.name = Storage.get("playername");
-	    },
-	    "j Come on, you are late. We've been waiting for you.",
+		"play music Friend",
+		"scene black fadeIn",
+		"particles universe",
+		// function(){
+	    	
+	 //    },
+	 //
 		{"Conditional":{
 			"Condition": function() {
+				storage.player.name = Storage.get("playername");
 				return storage.player.name !== null
 			},
 			"True": {
@@ -235,6 +251,7 @@ let script = {
 	"Registry":[
 		"clear",
 		"scene black with fadeIn",
+		"j Come on, you are running late. We've been waiting for you.",
 		{"Input":{
 			"Text": "What's your name?",
 			"Validation": function(input){
@@ -250,11 +267,42 @@ let script = {
 		"jump Introduction"
 	],
 	"Introduction":[
-		"scene #333 with fadeIn",
-	    `centered ${intro_0}`,
+		"scene #1a1a1a with fadeIn",
+	    `${intro_0}`,
+	    "You are now among a team of adventurers in search for a great treature which they call Uninnganeku.",
+	    "But among them, one is an imposter who is going take away all the loot and kill those who get in the way",
+	    "You mission is, by exercise sound judgement, to identify the imposter and help the rest of your team achieve the rare treature.",
+	    "y ......",
+	    "b What did you whisper?",
+	    "b A-ha!Decision-making. Of course. Actually I'd assure you'll be making tens of decisions if you're ever gonna reach the final treasure. Ye... I assure you that. Ha-ha-ha.",
+	    "j Ok, it's been enough small talks. Let's get to know your adventurer friends now, everyone.",
+	    "j Me. As you already know, I'm the initial organizer of this adventure. I've been working as a psychiatrist since I got my master degree.",
+	    "j Apart from ordinary clinical sessions, I also do shamanistic session along with alternative medicinine, which I acquired during my tribal living experience in south America.",
+	    "j Introduce yourself, Braun.",
+	    "B Oh. Ok. Hey, I Braun." ,
+	    "B Ya————you lookin' my muscles?",
+	    "B Ain't got alarmed. Jacob hire me so you ain't got killed by whadeva beast out there. He-he💪💪.",
+	    "e Hi I'm Elizabeth. I'd be happy if you can just call me Eliz. My..my aunt and my family, they all call me by that.",
+	    "j Elizabeth's been a member of Mensa International since elementary school.",
+	    "s Wow.",
+	    "a Huh.",
+	    "You notice the man in sunglasses made a mocking noise.",
+	    "s I'm Sophia. I'm born and raised in Uninngamiso, an island to the north of this archipelogo.",
+	    "s I'm a healer. But Bob always makes fun of me by calling me vampire.",
+	    "y Why?",
+	    "s ... Cuz I need to bite people to heal them.",
+	    "y .....",
+	    "s No, no. I don't feed on their blood, not at all. It's... just the way my people taught me to medicate. Bob can verify that.",
+	    "y Who's Bob?",
+	    "s Ah, Bob is...",
+	    "a Alexei. Master of code and machinery.",
+	    "j Bob. Bob comes and goes. Actually, he was just here. Remember?",
+	    "j Did you see what I just send you? Since you are the leader, you probably wanna know more about your...",
+	    "centered Jacob stops abruptly.",
 	    "jump Door"
 	],
 	"Door":[
+		"stop music",
 		"scene door",
 		"j This must be the entrance.",
 		{"Choice":{
@@ -265,18 +313,28 @@ let script = {
 		}}
 	],
 	"Locked_door":[
-		"scene #111 with fadeIn",
-	    "Going down the narrow corridor, you arrive in front of another door",
-		"y It's locked.",
-		"a Let me try",
-		"display message Need_more_detail",
+		// function(){
+		// 	var audio = document.getElementsByTagName("audio")[4];
+		// 	audio.pause();
+		// 	console.log(audio);
+		// },
+		"play music Wallemdtown",
+		"scene #202020 with fadeIn",
+	    "centered Going down the narrow corridor, you arrive in front of a another door",
+	    "centered You lean towards and push it. It doesn't budge an inch.",
+		"y Locked.",
+		"a 😏Let me.",
 		`${e_found_another_door}`,
+		"e Look, do you see the camouflaged brick to the foot of the wall?",
+		"e That must be the switch.",
+		"centered You look to where Elizabeth points...",
 		{"Choice":{
-		    "Let Alexi":{
-		    	"Text":"Let Alexi",
+			"Text":"Indeed, there's one brick with a thin linen thread attached to two tiny medal rings, apperently pulled but someone recently.",
+		    "Trust in Alexei's cryptographic skill":{
+		    	"Text":"Trust in Alexei's cryptographic skill",
 				"Do": "jump Alexi_branch1"
 			},
-			"Use Route":{
+			"Trust Elizabeth and pull the brick":{
 		    	"Text":"Use Route",
 				"Do": "jump Use_route_branch"
 			},
@@ -284,10 +342,12 @@ let script = {
 		"end"
 	],
 	"Use_route_branch":[
+		"stop particles",
+		"centered The road leads to a dead end.",
 		{"Choice":{
-			"Text": "The road leads to a dead end. When you wanted to turn back, you spotted a small gap in the walls, barely enough for you and some other people with small figure to pass through.",
+			"Text": " When you want to turn back, you spot a tiny gap in the walls. Only you and some other people with small figure are able to go through.",
 		    "Slip through":{
-		    	"Text":"Slip through the gap",
+		    	"Text":"Don't think about the others. Slip through the gap first ",
 				"Do": "centered You decide to leave your companion and proceed alone."
 			},
 			"Turn back":{
@@ -295,6 +355,10 @@ let script = {
 				"Do": "jump Farrel_branch0"
 			},
 		}},
+		,
+		"stop music",
+		"play music Darkness",
+		"centered You decided to leave your companion and proceed alone.",
 		{"Choice":{
 			"Text":"But you can't see anything there. Because there isn't any light.", 
 		    "reach for the flashlight in your backpack and traverse the dark path":{
@@ -306,22 +370,23 @@ let script = {
 				"Do": "jump Alexi_branch1"
 			},
 		}},
-		"y It is a flashlight, O口O!",
+		"y It is a flashlight.O口O!",
+		"start particles",
 		"s Wait for me!",
-		"It seems that Sophia has come through as well. ",
-		"display message Need_more_detail",
-		"Walking though the dark, finally you can see an exit that transmitted the sun light, which illuminated the route before you. Your eyes met each other and smiled, Sophia's innocent smile alleviates all of the stress.",
-		"centered While you are about to leave the structure, it suddenlly started collapsing.",
+		"centered Sophia has come through as well. ",
+		"scene light_in_the_distance fadeIn",
+		"centered Walking though the dark, finally you can see an exit that transmits the sun light. It illuminates the route before you.",
+		"Sophia's eyes meet yours and you both smile. You feel as if Sophia's innocent smile alleviates all of your stress.",
+		"centered Just as you're about to leave the structure, it suddenlly starts collapsing.",
 		"centered You get trapped inside a dark chamber.",
 		//Script writes an old man here. But I changed it to Bob
-		"centered An old man appeared with a wind.",
-		"b I'm glad you've found the right route, {{player.name}}. But you are now bounded forever in the stucture, because you left all your teammate alone",
+		"b I'm glad you've found the right route, {{player.name}}. But you are now bounded forever in the stucture by its curse, because you left behind all your other teammates.",
+		"centered An old man appears with a wind.",
 		"b My power is not enough to remove the curse, but I think a native Uninngamisia might save the situation.",
-		"centered His voice faltered, waiting for you to decide......",
+		"centered His voice falters, waiting for you to decide......",
 		"s If... this is the only way to save your life......",
 		"centered You see Sophia bursts into tears",
 		"s Then... please do it... I'm prepared to sacrifie my life for you.", //"you" was "everyone"
-		"display message Need_more_detail",
 		{"Choice":{
 			"leave the ruin":{
 				//Want to leave the ruin.sacrifice Sophia as a offering to the hell.<span style="color:red"<b>(a fresh heart of an islander can have a power to save the situation), 
@@ -333,27 +398,34 @@ let script = {
 				"Do": "jump Game_over5"
 			}
 		}},
-		"The old man nodded.",
-		"b Well then, I should let her pass away peacefully. Your noble sacrifice will forever be remember by us, young lady.",
+		"stop music",
+		"play muisc Darkest_Night",
+		"The old man nods.",
+		"b Well then, I should let her pass away peacefully. Your noble sacrifice will be remembered for ever, young lady.",
 		`centered ${sophia_sacrificed}`,
 		"B Oh I found the leader!!",
 		"B Where have you been? We had a hard time looking for you!",
 		"centered  All of your partners are worried about you, as if nothing had happened. No one seems to remember the fact that you forsake them.",
 		"j According to the map, now we're in a dangerous zone",
+		"stop music",//stop Darkest_Night
 		"An uncomfortable breeze gets you goose bumps, the path is so quiet that you can only hear echoes and the wind.",
 		`centered ${immense_mirror}`,
+		'scene dragon_in_the_mirror zoomInDown',
 		{"Choice":{
 			"throw a rock into the mirror":{
 				//Want to leave the ruin.sacrifice Sophia as a offering to the hell(a fresh heart of an islander can have a power to save the situation), 
 		    	"Text":"throw a rock into the mirror",
-				"Do":  "The dragon shrinks to an Asian Arowana and loses its original strength."
+				"Do": "scene dragon_in_the_mirror slideOutRight"
 			},
 			"jump into the mirror":{
 		    	"Text":"jump into the mirror", 
 				"Do": "jump Use_route_branch1"
 			}
 		}},
+		"centered The dragon shrinks to an Asian Arowana and loses its original strength.",
 		"centered The mirror is replaced by an aisle, you walk through it.",
+		"play music Healing05",
+		"scene river slideInLeft",
 		"A river appears into the view.",
 		"j It seems like we have entered Uninnganekarst, we have to follow the stream.",
 		"j The undergound river leads to a huge lake. We are closer to the treasure.",
@@ -375,6 +447,7 @@ let script = {
 				"Do": "jump Game_over6",
 			}
 		}},
+		"play music Rebel",
 		"You scream as you almost fall out of the boat. And you realize that's Alexei, whether he did it on purpose or not.",
 		{"Choice":{
 			//do nothing forgive Alexei 
@@ -416,7 +489,7 @@ let script = {
 		"e Sorry to bring this up to you suddenly, but I am afraid your life would be threatened......",
 		"e Alexei is a spy and hails from Soviet.",
 		{"Choice":{
-			//Thisis compulsory 
+			//This is compulsory 
 			"Text": "e He knows all of your weakness and even wants to push you off the boat before.",
 		    //>>>>>>>>>>>NEEDS CHECK
 		    "kill Alexei":{
@@ -428,13 +501,14 @@ let script = {
 		{"Choice":{
 		    "Trust Elizabeth":{
 		    	"Text":"Trust Elizabeth",
-				"Do": "You trust Elizabeth."
+				"Do": "play music Newhope"
 			},
 			"Kill Elizabeth":{
 		    	"Text":"Kill Elizabeth",
 				"Do": "jump Use_route_branch4"
 			},
 		}},
+		"You trust Elizabeth.",
 		"centered To assure Jacob on your trust, you suggested to work on finding the key of the box while split to two small teams to make it more effective. You go with Elizabeth.",
 		"While you two are alone, Elizabeth burst into tears...",
 		"e Thank you for trusting me...",
@@ -449,6 +523,7 @@ let script = {
 
 	//You killed Elizabeth believing in Alexei's word before his death
 	"Use_route_branch4":[
+		"play music Wallemdtown",
 		"You realize that Elizabeth is the mastermind who plans to kill others and takes away the treasure, so you decide to kill her.",
 		"After that, Braun and Jacob and you work as a team, searching for the key.",
 		"B How are we gonna find that tiny key in such a big area?",
@@ -460,14 +535,16 @@ let script = {
 		{"Choice":{
 		    "let Braun turf it out":{
 		    	"Text":"Let Braun turf it out",
-				"Do": "You don't trust the shark. So you shoo it away. It leaves sadly and never appeared again."
+				"Do": "play music Newhope"
 			},
 			"Trust it":{
 		    	"Text":"Trust it",
 				"Do": "jump Trust_shark"
 			},
 		}},
-		"You search for the key non-stop but to no avail. In despair, you leave the ruin and abandon the mission." //GAME OVER. Bad Ending.	
+		"You don't trust the shark. So you shoo it away. It leaves sadly and never shows up again.",
+		"You search for the key non-stop but to no avail. In despair, you leave the ruin and abandon the mission.",
+		 "end"//GAME OVER. Bad Ending.	
 	],
 	"Trust_shark":[
 		"The shark has flat teeth and eats plants for a living, in other word, it's a herbivore shark.",
@@ -488,6 +565,7 @@ let script = {
 	],
 	//Happy ending
 	"Use_route_branch3":[
+		"play music Path",
 		"centered You see Uninnganeku on the shore.",
 		"j Is that......?!",
 		"y ......Yeah, it is. Mission complete, let's go home.",
@@ -496,40 +574,47 @@ let script = {
 		"end"
 	],
 	"Game_over6":[
-		"while Braun was struggling, he broke the boat, all of you died.",
+		"While Braun is struggling, he destorys the boat, all five of you die.",
 		"scene #f5f10a with fadeIn",
 		"GAME OVER",
 		"end"
 	],
 	//inside immense_mirror
 	"Use_route_branch1":[
-		"Everyone was terrified except Braun.",
+		"play music Rebel",
+		"Everyone is terrified except Braun.",
 		"B Let me take over him...",
-		"display message Need_more_detail",
-		"He fights with the dragon and finds it is the one that could stand up to him, he fights till the last minute and dies with happiness.",
+		"He fights with the dragon and excitedly finds out it's the one that could stand up to him. He fights and fights, till the last minute and dies with happiness.",
+		//Dragon out 
+		"scene #aaaab1 fadeIn",
 		"B Finally, an opponent that wouldn't let me down.......",
-		"centered He finishes the sentence and passed away.",
-		"display message Need_more_detail",
-		"The crowd panicked and freaked out.",
+		"centered He finishes the sentence and passes away.",
+		"The crowd panick and freak out.",
+		"play music New",
 		`centered ${fake_end}`,
 		"scene #f5f10a with fadeIn",
 		"GAME OVER",
 		"end"
 	],
 	"Game_over5":[
+		"play music Healing04",
 		"centered Sophia comforts you.",
 		"y I'll decide my own destiny. If there is a will, there's a way.",
-		"display message Need_more_detail",
-		"centered You refuse the objection.",
+		"s Bob's not leaving yet! {{player.name}}, don't care about me. You should ask him to save you life!!"
+		"centered Sophia cries. But you firmly dismiss her objection.",
 		"b How pity...... Poor mortals. But with a good heart. Bless you for your next life.",
-		"centered The old man disappeared.",
+		"centered The old man disappears.",
 		"y Braun will be here in no time.",
+		"centered You try to comfort Sophia."
+		"scene #060606 fadeIn",
+		".......",
+		"After a long period, Braun manages to clear the rocks, but it's too late.",
+		"scene game_over with slideInDown",
 		`${game_over5}`,
-		"scene #f5f10a with fadeIn",
-		"GAME OVER",
 		"end"
 	],
 	"Alexi_branch1":[
+		"stop particles",
 		`${go_no_further}`,
 		{"Choice":{
 		    "Turn back":{

@@ -29,7 +29,8 @@ button {
 
 /* Simple Button Style on Hover */
 button:hover {
-
+	background-color: rgb(100,100,100,0.8);
+	cursor: hand;
 }
 
 /* General Styling for Menu Screens */
@@ -45,12 +46,16 @@ button:hover {
 
 /* Main Menu Styling */
 [data-menu="main"] {
-
+	background-image: url('../img/ui/main-screen1.png');
 }
 
 /* Main Menu Buttons Styling */
 [data-menu="main"] button {
+	z-index: 30;
+}
 
+[data-menu="main"] button {
+	z-index: 30;
 }
 
 [data-ui="inner-menu"] {

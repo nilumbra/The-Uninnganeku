@@ -100,6 +100,10 @@
 	</noscript>
 
 	<!-- Notice messages -->
+	<audio class="main-music" controls autoplay>
+		<source src="audio/music/friend.mp3" type="audio/mpeg">
+	</audio>		
+
 	<div data-notice="exit" class="modal">
 		<div class="row spaced">
 			<p data-string="Confirm" class="col xs12 m12 l12 xl12">Do you want to quit</p>
@@ -292,7 +296,13 @@
 			<p><span class="fa fa-times-circle-o"></span> <span data-string="QuitButton">Quit Game.</span></p>
 		</div>
 	</section>
-
+	
 </body>
+<script>
+var p = document.createElement('p')
 
+var audio = document.querySelector('.main-music');
+console.log(audio)
+audio.play()
+</script>>
 </html>

@@ -42,7 +42,7 @@ let engine = {
 	"MultiLanguage": false,
 
 	// Music for the Main Menu.
-	"MenuMusic": "",
+	"MenuMusic": "",//friend.mp3
 
 	// Prefix for the Save Slots in Local Storage.
 	"SaveLabel": "Save_",
@@ -86,9 +86,9 @@ let settings = {
 
 	// Initial Volumes from 0.0 to 1.
 	"Volume": {
-		"Music": 1,
-		"Voice": 1,
-		"Sound": 1
+		"Music": 0.3,
+		"Voice": 0.3,
+		"Sound": 0.3
 	},
 
 	// Initial resolution used for Electron, it must match the settings inside
@@ -96,7 +96,7 @@ let settings = {
 	"Resolution": "800x600",
 
 	// Speed at which dialog text will appear
-	"TextSpeed": 20,
+	"TextSpeed": 16,
 
 	// Speed at which the Auto Play feature will show the next statement
 	// It is measured in seconds and starts counting after the text is
