@@ -26,7 +26,78 @@ let messages = {
         "Subtitle": "<span style='color:red'>Attention!</span>",
         "Message": `<div><p style='color:black'>Further details/dialog development required</p></div>`
     },
+    "Credits:":{
+    	"Title": "<h2>Credits</h2>",
+    	"Subtitle":"Congratulations",
+    	"Messsages": "Congratulation"
+    }
 };
+
+let credits = `<div id="title">
+       <div id="credits">
+       			<h1>Created by</h1>
+            <dl>
+                <dt>Background Settings</dt>
+                <dd>Farrel, Mike, Miller</dd>
+
+
+                <dt>Character design</dt>
+                <dd>Ikhbayar, Farrel, Like, Mike, Kyler</dd>
+              
+                <dt>Script group</dt>
+                <dd>Ikhbayar, Farrel, Like</dd>
+
+                <dt>Script supervisor</dt>
+                <dd>Mike, Miller, Kyler</dd>
+
+                <dt>Storyteller</dt>
+                <dd>Ikhbayar, Farrel, Like, Kyler</dd>
+
+
+                <dt>Story proofreading</dt>
+                <dd>Miller, Farrel</dd>
+
+                <dt>Programmer</dt>
+                <dd>Mike</dd>
+               
+                <dt>Tutor</dt>
+                <dd>Miller</dd>
+
+                <dt>Pictures</dt>
+                <dd>Ikhbayar, Like</dd>
+
+                <dt>Background music</dt>
+                <dd>Mike</dd>
+
+
+                <dt>α ver. tester</dt>
+                <dd>Mike, Miller, Like, Like’s brother</dd>
+
+                <dt>β ver. tester</dt>
+                <dd>Ikhbayar, Farrel, Like, Mike, Kyler, Miller</dd>
+            </dl>
+            <h1>Source and reference</h1>
+            <dl>
+                <dt>Game engine:</dt>
+                <dd>monogatari.io</dd>
+                <dt>Pictures:</dt>
+                <dd>pexels.com </dd>
+                <dt></dt>
+                <dd>flickr.com</dd>
+                <dt></dt>
+                <dd>thenounproject.com</dd>
+                <dt></dt>
+                <dd>pixiv.com (Lifeline)</dd>
+
+                <dt>BGM</dt>
+                <dd>MonsterSirenRecords-HyperGryph</dd>
+                <dt></dt>
+                <dd>maoudamashii.jokersounds</dd>
+            </dl>
+
+            <div id="the end">And You</p>
+    </div>
+</div>`
 
 // Define the notifications used in the game
 let notifications = {
@@ -149,7 +220,14 @@ var utils = {
 	"more_detail": function(){
 		let dialog_box = document.querySelector("[data-ui='text']");
 		dialog_box.style.backgroundColor = "#e35959"
-	}
+	},
+	"credits": function(){
+			let message_ui = $_("[data-ui='messages']")
+			$_("[data-ui='message-content']").html(`${credits}`);
+			$_("[data-ui='messages']").addClass("credits");
+			$_("[data-ui='messages']").addClass("active");
+			message_ui.addClass("active");
+		},	
 }
 
 //========long script texts go here===========
@@ -268,9 +346,9 @@ let script = {
 	],
 	"Introduction":[
 		"scene #1a1a1a with fadeIn",
-	    `${intro_0}`,
+	    `${intro_0}`,    
 	    "You are now among a team of adventurers in search for a great treature which they call Uninnganeku.",
-	    "But among them, one is an imposter who is going take away all the loot and kill those who get in the way",
+	    "But among you, one is an imposter who is going take away all the loot and kill those who get in the way",
 	    "You mission is, by exercise sound judgement, to identify the imposter and help the rest of your team achieve the rare treature.",
 	    "y ......",
 	    "b What did you whisper?",
@@ -572,6 +650,7 @@ let script = {
 		"y ......Yeah, it is. Mission complete, let's go home.",
 		"scene happy_reunion with fadeIn",
 		`${route_branch_he1}`,
+		utils.credits,
 		"end"
 	],
 	"Game_over6":[
@@ -703,14 +782,12 @@ let script = {
 		}}
 	],
 	"Game_over0":[
-		"display message Need_more_detail",
 		`${game_over0}`,
 		"scene collapse0 with fadeIn",
 		"GAME OVER",
 		"end"
 	],
 	"Leave_sophia_2":[
-		"display message Need_more_detail",
 		`centered ${alexie_and_braun_die_fighting_cerberus}`,
 		//Elizabeth demands killing Bob. Elizabeth or Bob?
 		{"Choice":{
@@ -725,6 +802,7 @@ let script = {
 			},
 		}}
 	],
+	//Happy ending
 	"He1":[
 		"play music Path",
 		"After such a long and horrible, you finally find the treasure over a hidden corridor.",
@@ -745,6 +823,7 @@ let script = {
 		"Turning back, you saw Sophia running to you.",
 		"scene happy_reunion with fadeIn",
 		`${he1_reunion}`,
+		utils.credits,
 		"end"
 	],
 	"Game_over1":[
@@ -837,7 +916,9 @@ let script = {
 		"y Yeah",
 		"You pick up the skull. It shimmers by the reflection of the flashlight.",
 		"scene happy_reunion with fadeIn",
+		//happy ending
 		"y It's all over, lets's go home.",
+		utils.credits,
 		"end"
 	],
 	"Game_over4":[
@@ -973,7 +1054,7 @@ let script = {
 				"Do": "You decide to continue the expedition."
 			},
 		}},
-		"scene #C0FFEE with fadeIn",
+		"scene #303030 with fadeIn",
 		"centered The door has some puzzles that need to be solved.",
 		"centered You figure it'll be faster if you split the group into two teams, one stays at the door while the other looks around for clues.",
 		"end",
@@ -1028,7 +1109,8 @@ let script = {
 		"centered But a punch from a 200kg man such as Brawn is enough to break someone's ribs and puncture several vital organs.",
 		"centered Elizabeth struggles to breath and die not long after.",
 		"centered With no one left to interfere, you manage to open the door to the treasure, though it took a while to do it.",
-		"centeredYou publishe you paper on the ancient ruin and artifact and gain a fortune because of it",
+		"centered You publishe you paper on the ancient ruin and artifact and gain a fortune because of it",
+		utils.credits,
 		"end"
 
 	],
